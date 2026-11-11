@@ -1,0 +1,386 @@
+/* ============================================
+   CodeDev - Jobs Page Stylesheet
+   ============================================ */
+
+.jobs-page { background: var(--bg-light); min-height: 60vh; }
+
+/* ── FILTER BAR — Premium Design ── */
+.filter-bar {
+  background: #fff;
+  border-bottom: 1px solid rgba(37,99,235,0.1);
+  padding: 18px 0;
+  box-shadow: 0 4px 24px rgba(15,23,42,0.07);
+}
+
+/* row that holds all fields */
+.filter-inner {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* one labelled column */
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 140px;
+}
+.filter-field--wide {
+  flex: 2.2;
+  min-width: 220px;
+}
+
+/* small label above each input */
+.filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.69rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  user-select: none;
+  cursor: default;
+}
+.filter-label svg { opacity: 0.65; flex-shrink: 0; }
+
+/* icon + control inside the field */
+.filter-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-light);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 44px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+.filter-input-wrap:focus-within {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+.filter-input-wrap > svg {
+  color: var(--text-light);
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.filter-input-wrap:focus-within > svg { color: var(--primary); }
+
+.filter-input-wrap input,
+.filter-input-wrap select {
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--text-dark);
+  width: 100%;
+  outline: none;
+  font-family: var(--font);
+}
+.filter-input-wrap input::placeholder { color: var(--text-light); }
+
+/* custom dropdown arrow on selects */
+.filter-input-wrap select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  padding-right: 18px;
+}
+
+/* action column (Search + Clear buttons) */
+.filter-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.filter-btns {
+  display: flex;
+  gap: 8px;
+  height: 44px;
+}
+
+/* Search button */
+.filter-search-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 20px;
+  height: 100%;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font);
+  transition: all 0.2s;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.filter-search-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+}
+.filter-search-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.4);
+}
+.filter-search-btn:hover::after { transform: translateX(100%); }
+.filter-search-btn:active { transform: translateY(0); }
+
+/* Clear button */
+.filter-clear-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 14px;
+  height: 100%;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font);
+  transition: all 0.2s;
+}
+.filter-clear-btn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: #fff5f5;
+}
+
+/* ── QUICK FILTER CHIPS ── */
+.quick-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 24px 0 16px;
+  align-items: center;
+}
+
+.chips-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  margin-right: 2px;
+  flex-shrink: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1.5px solid var(--border);
+  background: var(--bg-white);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.chip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.1);
+}
+.chip-active {
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+}
+.chip-active:hover {
+  color: #fff;
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  box-shadow: 0 6px 16px rgba(37,99,235,0.4);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .filter-field--wide { flex: 1.5; }
+}
+
+/* --- Jobs Content --- */
+.jobs-content { padding: 32px 0 64px; }
+
+.jobs-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.jobs-count { font-size: 0.95rem; color: var(--text-muted); }
+.jobs-count strong { color: var(--text-dark); }
+
+.sort-select {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  background: var(--bg-white);
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.sort-select:focus { border-color: var(--primary); }
+
+/* --- Load More --- */
+.load-more-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ── MOBILE FILTER BAR ── */
+@media (max-width: 768px) {
+  /* Blue gradient background — makes the whole bar visually rich */
+  .filter-bar {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    border-bottom: none;
+    box-shadow: 0 6px 24px rgba(37,99,235,0.35);
+    padding: 16px 0 20px;
+  }
+
+  /* Labels turn white on blue bg */
+  .filter-label {
+    color: rgba(255,255,255,0.8);
+  }
+  .filter-label svg { opacity: 0.7; color: #fff; }
+
+  /* Stack all fields */
+  .filter-inner { flex-direction: column; gap: 10px; }
+  .filter-field,
+  .filter-field--wide { width: 100%; min-width: unset; flex: none; }
+
+  /* White input boxes pop against the blue */
+  .filter-input-wrap {
+    background: rgba(255,255,255,0.97);
+    border-color: rgba(255,255,255,0.25);
+    height: 48px;
+  }
+  .filter-input-wrap:focus-within {
+    background: #fff;
+    border-color: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.2);
+  }
+  .filter-input-wrap > svg { color: var(--primary); }
+  .filter-input-wrap input,
+  .filter-input-wrap select { font-size: 0.9rem; }
+
+  /* Action buttons row — full width */
+  .filter-actions { width: 100%; }
+  .filter-btns { width: 100%; height: auto; gap: 8px; }
+
+  /* Search button — white with blue text (inverted, stands out) */
+  .filter-search-btn {
+    flex: 2;
+    height: 50px;
+    background: #fff;
+    color: var(--primary);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+  .filter-search-btn:hover {
+    background: var(--primary-light);
+    transform: none;
+  }
+  .filter-search-btn svg { color: var(--primary); }
+
+  /* Clear button — ghost white */
+  .filter-clear-btn {
+    flex: 1;
+    height: 50px;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.9);
+    border-radius: 12px;
+  }
+  .filter-clear-btn:hover {
+    background: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.6);
+    color: #fff;
+  }
+
+  .jobs-toolbar { flex-direction: column; align-items: flex-start; }
+
+  /* Chips — horizontal scroll, no ugly wrapping */
+  .quick-chips {
+    gap: 6px;
+    margin: 16px 0 12px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .quick-chips::-webkit-scrollbar { display: none; }
+  .chip { font-size: 0.78rem; padding: 6px 14px; flex-shrink: 0; }
+}
+
+/* ── CUSTOM FILTER DROPDOWNS (fjd) ── */
+.fjd { position: relative; width: 100%; }
+.fjd-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; background: transparent; border: none; padding: 0;
+  cursor: pointer; font-family: var(--font); font-size: 0.875rem;
+  color: var(--text-dark); outline: none; gap: 6px;
+}
+.fjd-btn:focus-visible { outline: 2px solid var(--primary); border-radius: 4px; }
+.fjd-label { flex: 1; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fjd-chevron { flex-shrink: 0; color: #94a3b8; transition: transform 0.2s; }
+.fjd.open .fjd-chevron { transform: rotate(180deg); }
+.fjd-list {
+  position: fixed; background: #fff; border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(15,23,42,0.16), 0 0 0 1px rgba(0,0,0,0.05);
+  z-index: 99999; list-style: none; padding: 6px; margin: 0;
+  opacity: 0; transform: translateY(-6px) scale(0.98); transform-origin: top left;
+  transition: opacity 0.18s ease, transform 0.18s ease; pointer-events: none;
+}
+.fjd-list.open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.fjd-list li {
+  padding: 10px 14px; border-radius: 10px; font-size: 0.875rem;
+  color: #1e293b; cursor: pointer; transition: background 0.12s, color 0.12s;
+  white-space: nowrap;
+}
+.fjd-list li:hover { background: #eff6ff; color: var(--primary); }
+.fjd-list li.selected { background: var(--primary); color: #fff; font-weight: 600; }
+.fjd-list li.selected:hover { background: #1d4ed8; color: #fff; }
+
+/* Mobile: white labels on blue bar stay legible */
+@media (max-width: 768px) {
+  .fjd-btn { color: var(--text-dark); }
+  .filter-input-wrap .fjd-btn { color: var(--text-dark); }
+}

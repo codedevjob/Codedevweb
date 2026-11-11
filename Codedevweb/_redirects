@@ -1,0 +1,17 @@
+# CodeDev – Netlify Redirects
+
+# Job detail pages
+/job/*        /job/index.html   200
+
+# Trailing slash redirects
+/login        /login/           301
+/admin        /admin/           301
+/jobs         /jobs/            301
+/referrals    /referrals/       301
+/about        /about/           301
+/contact      /contact/         301
+/privacy      /privacy/         301
+/disclaimer   /disclaimer/      301
+
+# 404 fallback
+/*            /404.html         404

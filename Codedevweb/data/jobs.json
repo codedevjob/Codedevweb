@@ -1,0 +1,430 @@
+[
+  {
+    "id": "JOB001",
+    "slug": "virtusa-software-engineer",
+    "company": "Virtusa",
+    "companyLogo": "../images/companies/virtusa.svg",
+    "title": "Software Engineer",
+    "location": "Hyderabad",
+    "experience": "0-2 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "JavaScript",
+      "React",
+      "SQL",
+      "Node.js"
+    ],
+    "salary": "Not Disclosed",
+    "postedDate": "2025-07-01",
+    "expiryDate": "2025-12-31",
+    "description": "Virtusa is looking for a passionate Software Engineer to join our growing engineering team. You will work on cutting-edge projects for global clients, building scalable and high-performance web applications. This is an excellent opportunity for freshers and early-career professionals to grow in a dynamic environment.",
+    "responsibilities": [
+      "Design, develop and maintain web applications using JavaScript and React",
+      "Write clean, maintainable and well-documented code",
+      "Collaborate with cross-functional teams including designers and product managers",
+      "Participate in code reviews and contribute to team best practices",
+      "Troubleshoot and debug application issues",
+      "Work with SQL databases for data management"
+    ],
+    "eligibility": [
+      "Bachelor's degree in Computer Science, IT or related field",
+      "0-2 years of experience in software development",
+      "Strong understanding of JavaScript fundamentals",
+      "Familiarity with React or similar frontend frameworks",
+      "Good communication and teamwork skills"
+    ],
+    "education": "B.E / B.Tech / MCA / M.Tech in Computer Science or related field",
+    "applicationUrl": "https://careers.virtusa.com",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": "JOB002",
+    "slug": "tcs-java-developer",
+    "company": "TCS",
+    "companyLogo": "../images/companies/tcs.svg",
+    "title": "Java Developer",
+    "location": "Bangalore",
+    "experience": "2-4 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "Java",
+      "Spring Boot",
+      "Microservices",
+      "REST API",
+      "MySQL"
+    ],
+    "salary": "8-12 LPA",
+    "postedDate": "2025-07-02",
+    "expiryDate": "2025-12-31",
+    "description": "Tata Consultancy Services (TCS) is hiring experienced Java Developers to work on enterprise-grade applications for our global clients. You will be part of a high-performing team delivering innovative solutions using modern Java technologies and microservices architecture.",
+    "responsibilities": [
+      "Develop and maintain Java-based backend services and APIs",
+      "Design and implement microservices using Spring Boot",
+      "Collaborate with frontend teams to integrate REST APIs",
+      "Write unit and integration tests to ensure code quality",
+      "Participate in Agile ceremonies and sprint planning",
+      "Optimise application performance and scalability"
+    ],
+    "eligibility": [
+      "2-4 years of hands-on Java development experience",
+      "Strong knowledge of Spring Boot and microservices",
+      "Experience with REST API design and development",
+      "Proficiency in MySQL or similar relational databases",
+      "Understanding of Agile development methodologies"
+    ],
+    "education": "B.E / B.Tech in Computer Science, IT or related field",
+    "applicationUrl": "https://ibegin.tcs.com",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": "JOB003",
+    "slug": "infosys-data-analyst",
+    "company": "Infosys",
+    "companyLogo": "../images/companies/infosys.svg",
+    "title": "Data Analyst",
+    "location": "Pune",
+    "experience": "1-3 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "Python",
+      "SQL",
+      "Power BI",
+      "Excel",
+      "Tableau"
+    ],
+    "salary": "6-10 LPA",
+    "postedDate": "2025-07-03",
+    "expiryDate": "2025-12-31",
+    "description": "Infosys is seeking a skilled Data Analyst to join our Analytics Centre of Excellence. You will work with large datasets to derive actionable insights, build dashboards and support data-driven decision making for our clients across various industries.",
+    "responsibilities": [
+      "Analyse large datasets to identify trends, patterns and insights",
+      "Build interactive dashboards and reports using Power BI and Tableau",
+      "Write complex SQL queries for data extraction and transformation",
+      "Collaborate with business stakeholders to understand reporting requirements",
+      "Develop Python scripts for data processing and automation",
+      "Present findings and recommendations to non-technical audiences"
+    ],
+    "eligibility": [
+      "1-3 years of experience in data analysis or business intelligence",
+      "Proficiency in SQL and Python for data manipulation",
+      "Experience with Power BI or Tableau for visualisation",
+      "Strong analytical and problem-solving skills",
+      "Excellent communication and presentation skills"
+    ],
+    "education": "B.E / B.Tech / B.Sc in Computer Science, Statistics, Mathematics or related field",
+    "applicationUrl": "https://career.infosys.com",
+    "status": "active",
+    "featured": false
+  },
+  {
+    "id": "JOB004",
+    "slug": "accenture-data-engineer",
+    "company": "Accenture",
+    "companyLogo": "../images/companies/accenture.svg",
+    "title": "Data Engineer",
+    "location": "Chennai",
+    "experience": "3-5 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "Python",
+      "Apache Spark",
+      "AWS",
+      "SQL",
+      "ETL",
+      "Kafka"
+    ],
+    "salary": "12-18 LPA",
+    "postedDate": "2025-07-04",
+    "expiryDate": "2025-12-31",
+    "description": "Accenture is looking for an experienced Data Engineer to design and build scalable data pipelines and infrastructure. You will work with cutting-edge cloud technologies and big data tools to enable data-driven insights for our enterprise clients.",
+    "responsibilities": [
+      "Design, build and maintain scalable data pipelines using Apache Spark and Kafka",
+      "Develop ETL processes for data ingestion, transformation and loading",
+      "Work with AWS services including S3, Glue, Redshift and Lambda",
+      "Optimise data storage and retrieval for performance and cost efficiency",
+      "Collaborate with data scientists and analysts to support analytical workloads",
+      "Implement data quality checks and monitoring"
+    ],
+    "eligibility": [
+      "3-5 years of experience in data engineering or related field",
+      "Strong proficiency in Python and SQL",
+      "Hands-on experience with Apache Spark and distributed computing",
+      "Experience with AWS cloud services",
+      "Knowledge of ETL design patterns and best practices"
+    ],
+    "education": "B.E / B.Tech in Computer Science, IT or related field",
+    "applicationUrl": "https://www.accenture.com/in-en/careers",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": "JOB005",
+    "slug": "wipro-devops-engineer",
+    "company": "Wipro",
+    "companyLogo": "../images/companies/wipro.svg",
+    "title": "DevOps Engineer",
+    "location": "Bangalore",
+    "experience": "2-5 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "AWS",
+      "Terraform",
+      "Linux"
+    ],
+    "salary": "10-16 LPA",
+    "postedDate": "2025-07-05",
+    "expiryDate": "2025-12-31",
+    "description": "Wipro is hiring a DevOps Engineer to strengthen our cloud infrastructure and CI/CD capabilities. You will work with modern DevOps tools and cloud platforms to automate deployments, improve system reliability and accelerate software delivery.",
+    "responsibilities": [
+      "Design and implement CI/CD pipelines using Jenkins and GitLab CI",
+      "Manage containerised applications using Docker and Kubernetes",
+      "Provision and manage cloud infrastructure using Terraform on AWS",
+      "Monitor system performance and implement alerting solutions",
+      "Collaborate with development teams to improve deployment processes",
+      "Ensure security best practices in infrastructure and deployments"
+    ],
+    "eligibility": [
+      "2-5 years of DevOps or infrastructure engineering experience",
+      "Strong knowledge of Docker and Kubernetes",
+      "Experience with CI/CD tools like Jenkins or GitLab CI",
+      "Proficiency in AWS cloud services",
+      "Knowledge of Infrastructure as Code using Terraform"
+    ],
+    "education": "B.E / B.Tech in Computer Science, IT or related field",
+    "applicationUrl": "https://careers.wipro.com",
+    "status": "active",
+    "featured": false
+  },
+  {
+    "id": "JOB006",
+    "slug": "cognizant-fullstack-developer",
+    "company": "Cognizant",
+    "companyLogo": "../images/companies/cognizant.svg",
+    "title": "Full Stack Developer",
+    "location": "Hyderabad",
+    "experience": "2-4 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express.js",
+      "JavaScript",
+      "REST API"
+    ],
+    "salary": "9-14 LPA",
+    "postedDate": "2025-07-06",
+    "expiryDate": "2025-12-31",
+    "description": "Cognizant is seeking a talented Full Stack Developer to join our digital engineering team. You will build end-to-end web applications using the MERN stack, working closely with clients to deliver high-quality digital solutions.",
+    "responsibilities": [
+      "Develop responsive frontend applications using React.js",
+      "Build robust backend APIs using Node.js and Express.js",
+      "Design and manage MongoDB databases",
+      "Integrate third-party APIs and services",
+      "Ensure application security and performance optimisation",
+      "Participate in Agile development and sprint reviews"
+    ],
+    "eligibility": [
+      "2-4 years of full stack development experience",
+      "Proficiency in React.js and Node.js",
+      "Experience with MongoDB and NoSQL databases",
+      "Strong JavaScript and ES6+ knowledge",
+      "Experience with RESTful API design"
+    ],
+    "education": "B.E / B.Tech / MCA in Computer Science or related field",
+    "applicationUrl": "https://careers.cognizant.com",
+    "status": "active",
+    "featured": false
+  },
+  {
+    "id": "JOB007",
+    "slug": "capgemini-cloud-architect",
+    "company": "Capgemini",
+    "companyLogo": "../images/companies/capgemini.svg",
+    "title": "Cloud Architect",
+    "location": "Mumbai",
+    "experience": "6-10 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "AWS",
+      "Azure",
+      "GCP",
+      "Terraform",
+      "Kubernetes",
+      "Solution Design"
+    ],
+    "salary": "25-35 LPA",
+    "postedDate": "2025-07-07",
+    "expiryDate": "2025-12-31",
+    "description": "Capgemini is looking for a seasoned Cloud Architect to lead cloud transformation initiatives for our enterprise clients. You will design and oversee the implementation of scalable, secure and cost-effective cloud solutions across AWS, Azure and GCP.",
+    "responsibilities": [
+      "Design end-to-end cloud architecture solutions for enterprise clients",
+      "Lead cloud migration and modernisation projects",
+      "Define cloud governance, security and compliance frameworks",
+      "Evaluate and recommend cloud technologies and services",
+      "Mentor junior engineers and provide technical leadership",
+      "Collaborate with stakeholders to align cloud strategy with business goals"
+    ],
+    "eligibility": [
+      "6-10 years of IT experience with 4+ years in cloud architecture",
+      "Deep expertise in AWS, Azure or GCP",
+      "Experience with multi-cloud and hybrid cloud architectures",
+      "Strong knowledge of cloud security and compliance",
+      "Excellent communication and stakeholder management skills"
+    ],
+    "education": "B.E / B.Tech / M.Tech in Computer Science or related field",
+    "applicationUrl": "https://www.capgemini.com/careers",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": "JOB008",
+    "slug": "hcl-python-developer",
+    "company": "HCL",
+    "companyLogo": "../images/companies/hcl.svg",
+    "title": "Python Developer",
+    "location": "Noida",
+    "experience": "1-3 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "Python",
+      "Django",
+      "Flask",
+      "REST API",
+      "PostgreSQL",
+      "Git"
+    ],
+    "salary": "6-10 LPA",
+    "postedDate": "2025-07-08",
+    "expiryDate": "2025-12-31",
+    "description": "HCL Technologies is hiring a Python Developer to work on enterprise web applications and automation solutions. You will develop scalable backend services and APIs using Python frameworks, contributing to projects for global clients.",
+    "responsibilities": [
+      "Develop backend web applications using Django or Flask",
+      "Design and implement RESTful APIs",
+      "Work with PostgreSQL and other relational databases",
+      "Write automated tests and maintain code quality",
+      "Collaborate with frontend developers for API integration",
+      "Participate in code reviews and technical discussions"
+    ],
+    "eligibility": [
+      "1-3 years of Python development experience",
+      "Proficiency in Django or Flask framework",
+      "Experience with REST API development",
+      "Knowledge of PostgreSQL or similar databases",
+      "Familiarity with Git version control"
+    ],
+    "education": "B.E / B.Tech / MCA in Computer Science or related field",
+    "applicationUrl": "https://www.hcltech.com/careers",
+    "status": "active",
+    "featured": false
+  },
+  {
+    "id": "JOB009",
+    "slug": "tech-mahindra-ui-developer",
+    "company": "Tech Mahindra",
+    "companyLogo": "../images/companies/techmahindra.svg",
+    "title": "UI Developer",
+    "location": "Pune",
+    "experience": "1-3 Years",
+    "employmentType": "Full Time",
+    "skills": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "React",
+      "Bootstrap",
+      "Figma"
+    ],
+    "salary": "5-9 LPA",
+    "postedDate": "2025-07-09",
+    "expiryDate": "2025-12-31",
+    "description": "Tech Mahindra is seeking a creative UI Developer to build beautiful and responsive web interfaces. You will work closely with UX designers and backend developers to deliver pixel-perfect, accessible and performant user experiences.",
+    "responsibilities": [
+      "Develop responsive and accessible web interfaces using HTML5, CSS3 and JavaScript",
+      "Implement UI components using React and Bootstrap",
+      "Collaborate with UX designers to translate Figma designs into code",
+      "Ensure cross-browser compatibility and mobile responsiveness",
+      "Optimise frontend performance and loading times",
+      "Maintain and improve existing UI components"
+    ],
+    "eligibility": [
+      "1-3 years of frontend or UI development experience",
+      "Strong proficiency in HTML5, CSS3 and JavaScript",
+      "Experience with React.js",
+      "Ability to work with design tools like Figma",
+      "Good eye for design and attention to detail"
+    ],
+    "education": "B.E / B.Tech / BCA / MCA in Computer Science or related field",
+    "applicationUrl": "https://careers.techmahindra.com",
+    "status": "active",
+    "featured": false
+  },
+  {
+    "id": "JOB010",
+    "slug": "infosys-fresher-system-engineer",
+    "company": "Infosys",
+    "companyLogo": "../images/companies/infosys.svg",
+    "title": "Systems Engineer (Fresher)",
+    "location": "Multiple Locations",
+    "experience": "0-1 Year",
+    "employmentType": "Full Time",
+    "skills": [
+      "Java",
+      "Python",
+      "SQL",
+      "Problem Solving",
+      "Communication"
+    ],
+    "salary": "3.6 LPA",
+    "postedDate": "2025-07-10",
+    "expiryDate": "2025-12-31",
+    "description": "Infosys is conducting a mass hiring drive for fresh graduates through its InfyTQ platform. Selected candidates will undergo comprehensive training at Infosys Mysore campus before being deployed on client projects. This is an excellent opportunity to start your IT career with one of India's leading technology companies.",
+    "responsibilities": [
+      "Complete Infosys training programme at Mysore campus",
+      "Work on assigned client projects after training",
+      "Learn and apply new technologies as required",
+      "Collaborate with team members on project deliverables",
+      "Follow coding standards and best practices",
+      "Participate in knowledge sharing sessions"
+    ],
+    "eligibility": [
+      "2024 or 2025 batch graduates",
+      "B.E / B.Tech / M.E / M.Tech / MCA / M.Sc with 60% or above throughout academics",
+      "No active backlogs at the time of joining",
+      "Must have completed InfyTQ certification",
+      "Willingness to relocate anywhere in India"
+    ],
+    "education": "B.E / B.Tech / M.E / M.Tech / MCA / M.Sc in any stream",
+    "applicationUrl": "https://www.infytq.com",
+    "status": "active",
+    "featured": true
+  },
+  {
+    "id": "JOB061507",
+    "slug": "vnp-java",
+    "company": "vnp",
+    "companyLogo": "../images/companies/logo.svg",
+    "title": "java",
+    "location": "hyd",
+    "experience": "2",
+    "employmentType": "Full Time",
+    "skills": [
+      "java"
+    ],
+    "salary": "12",
+    "postedDate": "2026-11-12",
+    "expiryDate": "2026-12-12",
+    "description": "good opporinity",
+    "responsibilities": [],
+    "eligibility": [],
+    "education": "",
+    "applicationUrl": "www,vpn",
+    "status": "active",
+    "featured": false
+  }
+]

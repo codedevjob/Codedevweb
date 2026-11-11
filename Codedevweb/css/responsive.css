@@ -1,0 +1,329 @@
+/* ============================================
+   CodeDev - Responsive Stylesheet
+   ============================================ */
+
+/* --- Tablet (max 1024px) --- */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .hero-search { flex-wrap: wrap; }
+  .hero-divider { display: none; }
+  .hero-search-field { min-width: 200px; }
+}
+
+/* --- Mobile (max 768px) --- */
+@media (max-width: 768px) {
+  :root { --nav-height: 60px; }
+
+  /* Navbar */
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .nav-logo-img { height: 44px; }
+  .nav-inner { padding: 0 16px; }
+
+  /* Hero */
+  .hero { padding: 48px 0 56px; }
+  .hero h1 { font-size: 1.9rem; }
+  .hero p { font-size: 0.95rem; margin-bottom: 28px; }
+  .hero-badge { font-size: 0.78rem; padding: 5px 12px; }
+
+  /* Search bar — clean 2-row layout on mobile */
+  .hero-search {
+    flex-wrap: wrap;
+    padding: 14px 14px 10px 18px;
+    border-radius: 22px;
+    gap: 0;
+    align-items: center;
+  }
+  /* Row 1: search input — full width */
+  .hero-search-field--main {
+    flex: 0 0 100%;
+    width: 100%;
+    padding: 0 0 10px 0;
+    border-bottom: 1.5px solid #e2e8f0;
+    margin-bottom: 10px;
+  }
+  .hero-divider { display: none; }
+  /* Row 2: location (grows) + button (fixed) */
+  .hero-search-field--loc {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    padding-right: 8px;
+  }
+  .hero-search-btn {
+    flex: 0 0 auto;
+    padding: 0 20px;
+    height: 40px;
+    font-size: 0.88rem;
+    border-radius: 12px;
+  }
+
+  .hero-stats { gap: 20px; }
+  .hero-stat strong { font-size: 1.2rem; }
+  .hero-stat span { font-size: 0.78rem; }
+
+  /* Filter bar — compact 2-column grid on mobile */
+  .chips-label { display: none; }
+  .filter-bar { padding: 14px 0; }
+  .filter-inner { gap: 8px; }
+  .filter-field,
+  .filter-field--wide { flex: 1 1 calc(50% - 4px); min-width: 0; }
+  .filter-field--wide { flex: 1 1 100%; }
+  .filter-actions { flex: 1 1 100%; }
+  .filter-btns { flex-direction: row; height: 44px; }
+  .filter-search-btn { flex: 1; justify-content: center; }
+  .filter-clear-btn { flex-shrink: 0; padding: 0 16px; }
+  .filter-label { font-size: 0.65rem; }
+  .filter-input-wrap { height: 40px; padding: 0 10px; gap: 6px; }
+  .filter-input-wrap input,
+  .filter-input-wrap select { font-size: 0.82rem; }
+
+  /* Sections */
+  .section { padding: 40px 0; }
+  .section-header { margin-bottom: 28px; }
+  .section-header h2 { font-size: 1.5rem; }
+
+  /* Stat cards — 2×2 on mobile */
+  #statCards { grid-template-columns: repeat(2,1fr) !important; gap: 12px !important; }
+  .stat-card-home { padding: 18px 16px; gap: 14px; }
+  .stat-card-icon { width: 48px; height: 48px; }
+
+  /* Job cards */
+  .jobs-grid { grid-template-columns: 1fr; gap: 14px; }
+  .job-card { padding: 18px 18px 10px; border-radius: 16px; }
+  .jc-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .jc-actions { width: 100%; justify-content: flex-end; }
+  .btn-apply { flex: 1; justify-content: center; }
+
+  /* WhatsApp banner */
+  .wa-channel-banner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .wa-channel-btn { width: 100%; text-align: center; }
+
+  /* Features */
+  .features-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .feature-card { padding: 20px 14px; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-brand p { max-width: 100%; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer { padding: 40px 0 0; }
+
+  /* Page header */
+  .page-header { padding: 28px 0; }
+  .page-header h1 { font-size: 1.6rem; }
+
+  /* Mobile nav links */
+  .mobile-nav a { padding: 10px 14px; font-size: 0.95rem; }
+
+  /* Jobs toolbar */
+  .jobs-toolbar { flex-direction: column; align-items: flex-start; }
+
+  /* CTA */
+  .cta-section { padding: 48px 0; }
+  .cta-section h2 { font-size: 1.5rem; }
+}
+
+/* --- Small Mobile (max 480px) --- */
+@media (max-width: 480px) {
+  .container { padding: 0 14px; }
+
+  .nav-logo-img { height: 38px; }
+
+  .hero h1 { font-size: 1.6rem; letter-spacing: -0.5px; }
+  .hero p { font-size: 0.9rem; }
+
+  .features-grid { grid-template-columns: 1fr; }
+
+  .hero-stats { gap: 14px; }
+  .hero-stat strong { font-size: 1.1rem; }
+
+  /* Filter — keep buttons side by side even on tiny screens */
+  .filter-btns { flex-direction: row; height: 40px; }
+  .filter-search-btn { flex: 1; justify-content: center; font-size: 0.82rem; }
+  .filter-clear-btn { padding: 0 12px; font-size: 0.78rem; }
+
+  .job-meta { gap: 8px; }
+  .job-card { padding: 14px 14px 8px; border-radius: 14px; }
+  .jc-title { font-size: 0.95rem; }
+  .btn-apply { padding: 8px 14px; font-size: 0.82rem; }
+
+  .pagination { gap: 4px; }
+  .page-btn { width: 34px; height: 34px; font-size: 0.82rem; }
+
+  .footer-brand .nav-logo-img { height: 44px; }
+  .scam-banner-icon { font-size: 0.62rem; padding: 0 10px; }
+}
+
+/* --- Admin Dashboard Mobile --- */
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    width: 240px !important;
+    z-index: 200;
+  }
+  .sidebar.open { transform: translateX(0); box-shadow: 4px 0 24px rgba(0,0,0,0.3); }
+  .topbar { left: 0 !important; }
+  .main { margin-left: 0 !important; }
+
+  /* Hamburger toggle — force show */
+  #sidebarToggle { display: flex !important; }
+
+  /* Stats 2-col */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .stat-card { padding: 16px 14px; gap: 12px; }
+  .stat-val { font-size: 1.4rem !important; }
+  .stat-lbl { font-size: 0.75rem !important; }
+  .stat-icon { width: 40px !important; height: 40px !important; }
+
+  /* Dashboard two-col → single col */
+  #page-dashboard > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+
+  /* Post Job – tablet */
+  .pj-grid { grid-template-columns: 1fr !important; }
+  .pj-hero { gap: 12px; margin-bottom: 18px; }
+  .pj-hero-icon { width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0; }
+  .pj-hero-title { font-size: 1.2rem; }
+  .pj-hero-sub { font-size: 0.82rem; }
+  .pj-section { padding: 18px 16px 6px; }
+  .pj-footer { flex-direction: column; gap: 12px; align-items: stretch; }
+  .pj-footer > div { width: 100%; }
+  .pj-footer > div:last-child { display: flex; flex-direction: column; gap: 8px; }
+  .pj-footer > div:last-child .btn { width: 100%; justify-content: center; }
+  .type-toggle { width: 100%; }
+  .type-btn { flex: 1; justify-content: center; }
+
+  /* Manage Jobs – card head */
+  .card-head { flex-wrap: wrap; gap: 10px; }
+  .card-head > div { flex-wrap: wrap; gap: 8px; }
+  .search-wrap input { width: 160px; }
+
+  /* Table – horizontal scroll */
+  .card { overflow-x: auto; }
+  table { min-width: 640px; }
+
+  /* Filter tabs – scroll */
+  .filter-tabs { overflow-x: auto; padding: 0 14px; white-space: nowrap; }
+  .filter-tabs::-webkit-scrollbar { display: none; }
+
+  /* Topbar */
+  .topbar { padding: 0 16px !important; }
+  .topbar-right .btn-primary span { display: none; }
+  .topbar-right .btn-primary svg { margin: 0; }
+
+  /* Overlay when sidebar open */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 199;
+  }
+  .sidebar-overlay.show { display: block; }
+}
+
+@media (max-width: 540px) {
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .topbar { padding: 0 12px !important; }
+  .topbar-title { font-size: 0.88rem !important; }
+  .page { padding: 12px !important; }
+  .modal { max-width: 98vw; }
+  .modal-hd { padding: 14px 16px 12px !important; }
+  .modal-bd { padding: 14px 16px 18px !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+
+  /* Stat cards single col on very small */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .stat-card { padding: 14px 12px; gap: 10px; }
+
+  /* Table */
+  table { font-size: 0.78rem; min-width: 520px; }
+  th, td { padding: 8px 8px !important; }
+
+  /* Post Job – mobile */
+  .pj-hero { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .pj-grid { gap: 14px !important; }
+  .pj-section { padding: 16px 14px 4px; margin-bottom: 0; }
+  .pj-section-title { font-size: 0.85rem; margin-bottom: 14px; }
+  .fg label { font-size: 0.75rem; }
+  .fg input, .fg select, .fg textarea,
+  .pj-select, .pj-date, .pj-textarea { font-size: 0.875rem !important; padding: 10px 12px !important; }
+  .input-wrap input { padding-left: 34px !important; }
+  .pj-textarea { min-height: 130px; }
+  .fg-hint { font-size: 0.72rem; }
+  .pj-footer { padding: 14px 16px; gap: 10px; }
+  .pj-footer-note { font-size: 0.75rem; }
+  #scheduleRow { flex-direction: column; align-items: flex-start; gap: 8px; padding: 14px 16px; }
+  #scheduleRow input { max-width: 100% !important; width: 100%; }
+
+  /* Search bar full width */
+  .search-wrap { width: 100%; }
+  .search-wrap input { width: 100%; }
+  .card-head { flex-direction: column; align-items: stretch; }
+  .card-head > div { width: 100%; justify-content: space-between; }
+
+  /* Preview modal */
+  .preview-modal { border-radius: 10px; }
+  .preview-body { padding: 16px 18px !important; }
+  .pv-footer { padding: 12px 18px !important; flex-direction: column; gap: 8px; }
+  .pv-title { font-size: 1.1rem !important; }
+}
+
+/* --- Login Page Mobile --- */
+@media (max-width: 480px) {
+  .login-card { padding: 28px 20px !important; }
+  .login-logo img { height: 44px !important; }
+  .login-logo h1 { font-size: 1.2rem !important; }
+}
+
+/* --- Large Desktop (min 1400px) --- */
+@media (min-width: 1400px) {
+  .container { max-width: 1320px; }
+  .jobs-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- Focus Styles for Accessibility --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── New component mobile overrides ── */
+@media (max-width: 768px) {
+  /* HIW */
+  .hiw-steps { grid-template-columns: 1fr; gap: 24px; }
+  .hiw-steps::before { display: none; }
+  .hiw-step { max-width: 100%; margin: 0; text-align: left; display: flex; flex-direction: column; align-items: flex-start; }
+  .hiw-circle { margin: 0 0 16px 0; }
+  .hiw-step p { max-width: 100%; margin: 0; }
+  .hiw-section { padding: 48px 0; }
+
+  /* Bento grid */
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card.bento-dark { grid-column: span 1; }
+  .bento-card { padding: 24px 20px; }
+
+  /* Stats band — 2×2 on tablet */
+  .stats-band { grid-template-columns: repeat(2, 1fr); }
+  .stats-band-section { padding: 24px 0 32px; }
+
+  /* CTA */
+  .cta-checklist { flex-direction: column; align-items: flex-start; gap: 10px; padding: 0 4px; }
+  .cta-section .btn { min-width: 0; flex: 1; text-align: center; justify-content: center; }
+
+  /* Nav */
+  .nav-links a.active::after { display: none; }
+}
+@media (max-width: 480px) {
+  .bento-card { padding: 20px 16px; }
+  .bento-num { font-size: 2.5rem; }
+  .hiw-circle { width: 60px; height: 60px; font-size: 1.2rem; }
+  .hiw-section { padding: 40px 0; }
+  .stats-band-section { padding: 20px 0 28px; }
+  .cta-checklist { align-items: center; }
+}

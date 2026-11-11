@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login – CodeDev</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    /* BG */
+    .bg-canvas { position: fixed; inset: 0; z-index: 0; }
+    .bg-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%); }
+    .orb { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.4; animation: orbFloat 14s ease-in-out infinite; }
+    .orb-1 { width: 520px; height: 520px; background: #1a56db; top: -160px; left: -120px; animation-delay: 0s; }
+    .orb-2 { width: 420px; height: 420px; background: #7c3aed; bottom: -120px; right: -100px; animation-delay: 5s; }
+    .orb-3 { width: 280px; height: 280px; background: #0ea5e9; top: 45%; left: 55%; animation-delay: 10s; }
+    @keyframes orbFloat {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(28px,-36px) scale(1.06); }
+      66%      { transform: translate(-18px,22px) scale(0.94); }
+    }
+    .grid-lines {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .particles { position: absolute; inset: 0; pointer-events: none; }
+    .particle {
+      position: absolute; width: 2px; height: 2px;
+      background: rgba(255,255,255,0.7); border-radius: 50%;
+      animation: pFade var(--d) ease-in-out var(--dl) infinite;
+    }
+    @keyframes pFade { 0%,100%{opacity:0;transform:translateY(0)} 50%{opacity:1;transform:translateY(-18px)} }
+
+    /* SHELL */
+    .login-shell {
+      display: flex; width: 100%; max-width: 920px; min-height: 580px;
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07);
+      position: relative; z-index: 1;
+      animation: shellIn 0.65s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes shellIn { from{opacity:0;transform:translateY(28px) scale(0.97)} to{opacity:1;transform:none} }
+
+    /* LEFT PANEL */
+    .login-left {
+      flex: 1;
+      background: linear-gradient(150deg, rgba(15,23,42,0.97) 0%, rgba(30,58,138,0.92) 55%, rgba(26,86,219,0.88) 100%);
+      backdrop-filter: blur(20px);
+      padding: 52px 44px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: relative; overflow: hidden;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .login-left::before {
+      content:''; position:absolute; top:-80px; right:-80px;
+      width:300px; height:300px; border-radius:50%;
+      background: radial-gradient(circle, rgba(96,165,250,0.22) 0%, transparent 70%);
+      animation: orbFloat 10s ease-in-out infinite;
+    }
+    .login-left::after {
+      content:''; position:absolute; bottom:-60px; left:-40px;
+      width:220px; height:220px; border-radius:50%;
+      background: radial-gradient(circle, rgba(124,58,237,0.2) 0%, transparent 70%);
+      animation: orbFloat 13s ease-in-out 3s infinite reverse;
+    }
+    .lp-logo { display:flex; align-items:center; gap:12px; position:relative; z-index:1; }
+    .lp-logo img { height:44px; border-radius:10px; }
+    .lp-logo-text { color:#fff; font-size:1.2rem; font-weight:800; letter-spacing:-0.3px; line-height:1.2; }
+    .lp-logo-text small { display:block; font-size:0.7rem; font-weight:400; color:rgba(255,255,255,0.45); letter-spacing:0.5px; text-transform:uppercase; }
+    .lp-body { position:relative; z-index:1; }
+    .lp-badge {
+      display:inline-flex; align-items:center; gap:7px;
+      background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18);
+      color:rgba(255,255,255,0.9); padding:5px 14px; border-radius:20px;
+      font-size:0.74rem; font-weight:600; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:20px;
+    }
+    .lp-badge-dot { width:7px; height:7px; background:#4ade80; border-radius:50%; animation:pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(74,222,128,0.5)} 50%{box-shadow:0 0 0 6px rgba(74,222,128,0)} }
+    .lp-title { color:#fff; font-size:1.85rem; font-weight:800; line-height:1.25; letter-spacing:-0.5px; margin-bottom:14px; }
+    .lp-title span { color:#60a5fa; }
+    .lp-desc { color:rgba(255,255,255,0.6); font-size:0.88rem; line-height:1.7; max-width:280px; }
+    .lp-features { position:relative; z-index:1; display:flex; flex-direction:column; gap:11px; }
+    .lp-feature { display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.72); font-size:0.82rem; font-weight:500; }
+    .lp-feature-icon { width:28px; height:28px; border-radius:7px; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .lp-stats { position:relative; z-index:1; display:flex; gap:24px; margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1); }
+    .lp-stat-val { font-size:1.35rem; font-weight:800; color:#fff; line-height:1; }
+    .lp-stat-lbl { font-size:0.68rem; color:rgba(255,255,255,0.4); margin-top:3px; text-transform:uppercase; letter-spacing:0.4px; }
+
+    /* RIGHT PANEL */
+    .login-right {
+      width: 420px; background: #fff;
+      padding: 52px 44px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .rp-mobile-logo { display:none; align-items:center; gap:10px; margin-bottom:28px; }
+    .rp-mobile-logo img { height:40px; border-radius:8px; }
+    .rp-mobile-logo-text { font-size:1.1rem; font-weight:800; color:#0f172a; letter-spacing:-0.3px; line-height:1.2; }
+    .rp-mobile-logo-text small { display:block; font-size:0.7rem; font-weight:500; color:#64748b; text-transform:uppercase; letter-spacing:0.4px; }
+    .rp-header { margin-bottom:28px; }
+    .rp-header h2 { font-size:1.5rem; font-weight:800; color:#0f172a; letter-spacing:-0.4px; margin-bottom:5px; }
+    .rp-header p { font-size:0.875rem; color:#64748b; }
+
+    /* FORM */
+    .form-group { margin-bottom:16px; }
+    .form-group label { display:block; font-size:0.76rem; font-weight:700; color:#374151; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.4px; }
+    .input-wrap { position:relative; display:flex; align-items:center; }
+    .input-icon { position:absolute; left:13px; color:#94a3b8; pointer-events:none; flex-shrink:0; transition:color 0.2s; }
+    .form-group input {
+      width:100%; padding:11px 14px 11px 40px;
+      border:1.5px solid #e2e8f0; border-radius:10px;
+      font-size:0.92rem; color:#0f172a; background:#f8fafc;
+      outline:none; transition:border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      font-family:inherit;
+    }
+    .form-group input:focus { border-color:#1a56db; background:#fff; box-shadow:0 0 0 3px rgba(26,86,219,0.1); }
+    .form-group input:focus + .input-icon,
+    .input-wrap:focus-within .input-icon { color:#1a56db; }
+    .form-group input.input-error { border-color:#dc2626; box-shadow:0 0 0 3px rgba(220,38,38,0.1); animation:shake 0.4s ease; }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)} 40%{transform:translateX(6px)} 60%{transform:translateX(-4px)} 80%{transform:translateX(4px)} }
+    .form-group input::placeholder { color:#94a3b8; }
+    .password-wrap input { padding-right:44px; }
+    .toggle-pw { position:absolute; right:12px; background:none; border:none; cursor:pointer; color:#94a3b8; padding:4px; display:flex; align-items:center; transition:color 0.2s; }
+    .toggle-pw:hover { color:#1a56db; }
+
+    /* PASSWORD STRENGTH */
+    .pw-strength { margin-top:6px; display:none; }
+    .pw-strength-bar { height:3px; border-radius:2px; background:#e2e8f0; overflow:hidden; margin-bottom:4px; }
+    .pw-strength-fill { height:100%; border-radius:2px; transition:width 0.3s, background 0.3s; width:0%; }
+    .pw-strength-text { font-size:0.72rem; font-weight:600; }
+
+    /* ERROR */
+    .error-msg {
+      display:none; align-items:center; gap:8px;
+      background:#fef2f2; color:#dc2626; border:1px solid #fecaca;
+      border-radius:10px; padding:10px 14px; font-size:0.84rem; font-weight:500;
+      margin-bottom:16px; animation:fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:none} }
+
+    /* SUCCESS STATE */
+    .success-overlay {
+      display:none; position:absolute; inset:0; background:#fff;
+      flex-direction:column; align-items:center; justify-content:center;
+      gap:16px; z-index:10; animation:fadeIn 0.3s ease;
+    }
+    .success-overlay.show { display:flex; }
+    .success-circle {
+      width:72px; height:72px; border-radius:50%;
+      background:linear-gradient(135deg,#22c55e,#16a34a);
+      display:flex; align-items:center; justify-content:center;
+      animation:popIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+      box-shadow:0 8px 24px rgba(34,197,94,0.4);
+    }
+    @keyframes popIn { from{transform:scale(0) rotate(-20deg)} to{transform:scale(1) rotate(0)} }
+    .success-circle svg { animation:checkDraw 0.4s ease 0.3s both; }
+    @keyframes checkDraw { from{opacity:0;transform:scale(0.5)} to{opacity:1;transform:scale(1)} }
+    .success-title { font-size:1.1rem; font-weight:800; color:#0f172a; }
+    .success-sub { font-size:0.85rem; color:#64748b; }
+    .success-dots { display:flex; gap:6px; }
+    .success-dot { width:8px; height:8px; border-radius:50%; background:#1a56db; animation:dotBounce 0.8s ease-in-out infinite; }
+    .success-dot:nth-child(2){animation-delay:0.15s}
+    .success-dot:nth-child(3){animation-delay:0.3s}
+    @keyframes dotBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+    /* BUTTON */
+    .btn-login {
+      width:100%; padding:13px; background:#1a56db; color:#fff;
+      border:none; border-radius:10px; font-size:0.95rem; font-weight:700;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
+      transition:background 0.2s, transform 0.15s, box-shadow 0.2s;
+      font-family:inherit; margin-top:6px; position:relative; overflow:hidden;
+    }
+    .btn-login::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transform:translateX(-100%); transition:transform 0.4s;
+    }
+    .btn-login:hover:not(:disabled)::after { transform:translateX(100%); }
+    .btn-login:hover:not(:disabled) { background:#1341b0; transform:translateY(-1px); box-shadow:0 6px 20px rgba(26,86,219,0.4); }
+    .btn-login:active:not(:disabled) { transform:translateY(0); }
+    .btn-login:disabled { opacity:0.65; cursor:not-allowed; transform:none; }
+    .btn-spinner { width:16px; height:16px; border:2px solid rgba(255,255,255,0.4); border-top-color:#fff; border-radius:50%; animation:spin 0.7s linear infinite; display:none; }
+    @keyframes spin { to{transform:rotate(360deg)} }
+
+    /* FOOTER */
+    .rp-footer { margin-top:24px; padding-top:18px; border-top:1px solid #f1f5f9; text-align:center; }
+    .rp-footer a { display:inline-flex; align-items:center; gap:6px; font-size:0.84rem; color:#64748b; text-decoration:none; font-weight:500; transition:color 0.2s; }
+    .rp-footer a:hover { color:#1a56db; }
+
+    /* RESPONSIVE */
+    @media (max-width:720px) {
+      .login-left { display:none; }
+      .login-shell { max-width:440px; border-radius:16px; min-height:unset; }
+      .login-right { width:100%; padding:40px 32px; }
+      .rp-mobile-logo { display:flex; }
+    }
+    @media (max-width:480px) {
+      body { padding:0; align-items:stretch; background:#fff; }
+      .login-shell { max-width:100%; border-radius:0; box-shadow:none; min-height:100vh; }
+      .login-right { padding:48px 24px 32px; justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="bg-canvas">
+  <div class="bg-gradient"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="grid-lines"></div>
+  <div class="particles" id="particles"></div>
+</div>
+
+<div class="login-shell">
+
+  <!-- LEFT PANEL -->
+  <div class="login-left">
+    <div class="lp-logo">
+      <img src="../images/logo.jpeg" alt="CodeDev" data-brand-logo>
+      <div class="lp-logo-text"><span data-brand-name>CodeDev</span> <small>Admin Panel</small></div>
+    </div>
+
+    <div class="lp-body">
+      <div class="lp-badge"><span class="lp-badge-dot"></span>Secure Access</div>
+      <h2 class="lp-title">Manage your<br><span>IT job portal</span><br>with ease.</h2>
+      <p class="lp-desc">Post jobs, manage referrals, track analytics and keep your listings up to date — all from one place.</p>
+    </div>
+
+    <div>
+      <div class="lp-features">
+        <div class="lp-feature">
+          <div class="lp-feature-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg></div>
+          Post &amp; schedule job listings
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+          Auto-cleanup expired posts
+        </div>
+        <div class="lp-feature">
+          <div class="lp-feature-icon"><svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="#60a5fa" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+          Live analytics dashboard
+        </div>
+      </div>
+      <div class="lp-stats">
+        <div class="lp-stat"><div class="lp-stat-val" id="statJobs">0</div><div class="lp-stat-lbl">Active Jobs</div></div>
+        <div class="lp-stat"><div class="lp-stat-val" id="statRefs">0</div><div class="lp-stat-lbl">Referrals</div></div>
+        <div class="lp-stat"><div class="lp-stat-val" id="statCo">0</div><div class="lp-stat-lbl">Companies</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="login-right" style="position:relative;">
+
+    <!-- Success overlay -->
+    <div class="success-overlay" id="successOverlay">
+      <div class="success-circle">
+        <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <div class="success-title">Login Successful!</div>
+      <div class="success-sub">Redirecting to dashboard…</div>
+      <div class="success-dots">
+        <div class="success-dot"></div>
+        <div class="success-dot"></div>
+        <div class="success-dot"></div>
+      </div>
+    </div>
+
+    <!-- Mobile logo -->
+    <div class="rp-mobile-logo">
+      <img src="../images/logo.jpeg" alt="CodeDev" data-brand-logo>
+      <div class="rp-mobile-logo-text"><span data-brand-name>CodeDev</span> <small>Admin Panel</small></div>
+    </div>
+
+    <div class="rp-header">
+      <h2>Welcome back 👋</h2>
+      <p>Sign in to your admin account to continue</p>
+    </div>
+
+    <div class="error-msg" id="errorMsg">
+      <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span id="errorText">Incorrect email or password.</span>
+    </div>
+
+    <form id="loginForm" onsubmit="handleLogin(event)" novalidate>
+      <div class="form-group">
+        <label for="username">Email Address</label>
+        <div class="input-wrap">
+          <svg class="input-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <input type="email" id="username" placeholder="admin@codedev.com" autocomplete="username" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrap password-wrap">
+          <svg class="input-icon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required oninput="checkStrength(this.value)">
+          <button type="button" class="toggle-pw" onclick="togglePassword()" aria-label="Toggle password visibility">
+            <svg id="eyeIcon" width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="pw-strength" id="pwStrength">
+          <div class="pw-strength-bar"><div class="pw-strength-fill" id="pwFill"></div></div>
+          <span class="pw-strength-text" id="pwText"></span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login" id="loginBtn">
+        <div class="btn-spinner" id="btnSpinner"></div>
+        <svg id="btnIcon" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+        <span id="loginLabel">Sign In</span>
+      </button>
+    </form>
+
+    <div class="rp-footer">
+      <a href="/">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        Back to CodeDev
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SB_URL = 'https://xavvrnmahtakttdbwxsk.supabase.co';
+const SB_KEY = 'sb_publishable_OAc0TJq365enaKWCi7JgoA_HrV9Nt6K';
+
+// Load branding from Supabase site_settings (public read)
+(async function applyBranding() {
+  try {
+    const res = await fetch(
+      `${SB_URL}/rest/v1/site_settings?key=in.(logo_url,site_name)&select=key,value`,
+      { headers: { 'apikey': SB_KEY } }
+    );
+    if (!res.ok) return;
+    const rows = await res.json();
+    const s = {};
+    rows.forEach(r => { s[r.key] = r.value; });
+    if (s.logo_url) {
+      document.querySelectorAll('[data-brand-logo]').forEach(img => img.src = s.logo_url);
+    }
+    if (s.site_name) {
+      document.querySelectorAll('[data-brand-name]').forEach(el => el.textContent = s.site_name);
+    }
+  } catch(e) { /* silently fall back to default logo */ }
+})();
+
+// Redirect if already logged in
+(async () => {
+  const token = sessionStorage.getItem('cd_token');
+  if (!token) return;
+  const res = await fetch(`${SB_URL}/auth/v1/user`, { headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + token } });
+  if (res.ok) window.location.href = '/admin/';
+})();
+
+// Generate particles
+(function() {
+  const container = document.getElementById('particles');
+  for (let i = 0; i < 40; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${3+Math.random()*5}s;--dl:${Math.random()*6}s`;
+    container.appendChild(p);
+  }
+})();
+
+// Load live stats
+(async () => {
+  try {
+    const [jobs, refs] = await Promise.all([
+      fetch(`${SB_URL}/rest/v1/jobs?status=eq.active&select=id,company`, { headers: { 'apikey': SB_KEY } }).then(r => r.json()),
+      fetch(`${SB_URL}/rest/v1/referrals?status=eq.active&select=id,company`, { headers: { 'apikey': SB_KEY } }).then(r => r.json())
+    ]);
+    animCount('statJobs', jobs.length);
+    animCount('statRefs', refs.length);
+    animCount('statCo', new Set([...jobs, ...refs].map(j => j.company)).size);
+  } catch(e) {
+    document.getElementById('statJobs').textContent = '--';
+    document.getElementById('statRefs').textContent = '--';
+    document.getElementById('statCo').textContent = '--';
+  }
+})();
+
+function animCount(id, target) {
+  const el = document.getElementById(id);
+  let start = 0;
+  const step = () => {
+    start = Math.min(start + Math.ceil(target / 20), target);
+    el.textContent = start;
+    if (start < target) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+// Password strength
+function checkStrength(val) {
+  const wrap = document.getElementById('pwStrength');
+  const fill = document.getElementById('pwFill');
+  const text = document.getElementById('pwText');
+  if (!val) { wrap.style.display = 'none'; return; }
+  wrap.style.display = 'block';
+  let score = 0;
+  if (val.length >= 8) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const levels = [
+    { w: '25%', bg: '#ef4444', label: 'Weak',   color: '#ef4444' },
+    { w: '50%', bg: '#f97316', label: 'Fair',   color: '#f97316' },
+    { w: '75%', bg: '#eab308', label: 'Good',   color: '#eab308' },
+    { w: '100%',bg: '#22c55e', label: 'Strong', color: '#22c55e' },
+  ];
+  const l = levels[score - 1] || levels[0];
+  fill.style.width = l.w;
+  fill.style.background = l.bg;
+  text.textContent = l.label;
+  text.style.color = l.color;
+}
+
+async function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('username').value.trim();
+  const pass  = document.getElementById('password').value;
+  const err   = document.getElementById('errorMsg');
+  const btn   = document.getElementById('loginBtn');
+  const lbl   = document.getElementById('loginLabel');
+  const spinner = document.getElementById('btnSpinner');
+  const icon  = document.getElementById('btnIcon');
+
+  err.style.display = 'none';
+  btn.disabled = true;
+  lbl.textContent = 'Signing in…';
+  spinner.style.display = 'block';
+  icon.style.display = 'none';
+
+  const res = await fetch(`${SB_URL}/auth/v1/token?grant_type=password`, {
+    method: 'POST',
+    headers: { 'apikey': SB_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password: pass })
+  });
+  const data = await res.json();
+
+  if (res.ok && data.access_token) {
+    sessionStorage.setItem('cd_token', data.access_token);
+    spinner.style.display = 'none';
+    lbl.textContent = 'Success!';
+    btn.style.background = '#22c55e';
+    document.getElementById('successOverlay').classList.add('show');
+    setTimeout(() => { window.location.href = '/admin/'; }, 1800);
+  } else {
+    document.getElementById('errorText').textContent = data.error_description || data.msg || 'Incorrect email or password.';
+    err.style.display = 'flex';
+    const pwInput = document.getElementById('password');
+    pwInput.value = '';
+    pwInput.classList.add('input-error');
+    setTimeout(() => pwInput.classList.remove('input-error'), 600);
+    pwInput.focus();
+    btn.disabled = false;
+    spinner.style.display = 'none';
+    icon.style.display = 'block';
+    lbl.textContent = 'Sign In';
+  }
+}
+
+function togglePassword() {
+  const input = document.getElementById('password');
+  const icon  = document.getElementById('eyeIcon');
+  const show  = input.type === 'password';
+  input.type  = show ? 'text' : 'password';
+  icon.innerHTML = show
+    ? '<path stroke-linecap="round" stroke-linejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>'
+    : '<path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>';
+}
+</script>
+</body>
+</html>
